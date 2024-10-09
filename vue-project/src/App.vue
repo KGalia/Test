@@ -3,12 +3,7 @@
     <div class="logo"><h1> My to-do list </h1></div>
 
     <div class="my-style">
-      <todo-list :todos="todos"
-                 v-for="item in todos"
-                 :key="item.id"
-                 :id="item.id"
-                 :title="item.title"
-      />
+      <todo-list :todos="todos"/>
     </div>
   </main>
 </template>
