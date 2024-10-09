@@ -8,7 +8,6 @@
                  :key="item.id"
                  :id="item.id"
                  :title="item.title"
-                 :todo="item.todo"
       />
     </div>
   </main>
@@ -26,21 +25,14 @@ export default {
         {
           id: new Date().getTime(),
           title: 'Add Title Todo',
-          todo: [{id: new Date().getTime(), point: 'Wake up and have breakfast:)', done: false},
-            {id: new Date().getTime(), point: 'Create a Vue project:)', done: true},
-            {id: new Date().getTime(), point: 'Walking with the dog:)', done: false}]
         },
         {
           id: new Date().getTime() + 1,
           title: 'My Title Todo',
-          todo: [{id: new Date().getTime(), point: 'Reading a book', done: true},
-            {id: new Date().getTime(), point: 'Breakfast', done: true}]
         },
         {
           id: new Date().getTime() + 2,
           title: 'Add New Title',
-          todo: [{id: new Date().getTime(), point: 'Reading a book :)', done: true},
-            {id: new Date().getTime(), point: 'Walking with the dog:)', done: false}]
         },
       ]
     }
