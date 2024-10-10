@@ -1,31 +1,24 @@
 <template>
   <div class="my-style">
-    <div :id="id">
+    <div :id="todo.id">
       <h2 class="task-title">
-        {{ title }}
+        {{ todo.title }}
       </h2>
     </div>
+
+    <todo-items-list :items ="todo.items"
+                     :key="todo.items.id"
+     />
   </div>
 </template>
 
 <script>
+import TodoItemsList from "@/components/TodoItemsList.vue";
+
 export default {
+  components: {TodoItemsList},
   props: {
-    todo:{Object, required:true}
-  },
-
-  data() {
-    return {
-      id: this.todo.id,
-      title: this.todo.title,
-    }
-  },
-
-  methods: {}
+    todo: {type: Array, required: true},
+  }
 }
-
 </script>
-
-<style scoped>
-
-</style>
