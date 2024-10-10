@@ -18,7 +18,7 @@ import TodoItemsList from "@/components/TodoItemsList.vue";
 export default {
   components: {TodoItemsList},
   props: {
-    todo: {type: Array, required: true},
+    todo: {type: Object, required: true},
   }
 }
 </script>
