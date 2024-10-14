@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TodoItem
+    <TodoItemDetails
         v-for="item in items"
         :key="item.id"
         :item="item"
@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import TodoItem from "@/components/TodoItem.vue"
+import TodoItemDetails from "@/components/details/TodoItemDetails.vue";
 
 export default {
-  components: {TodoItem},
+  components: {TodoItemDetails},
 
   props: {
     items: {

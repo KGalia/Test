@@ -1,14 +1,12 @@
 <template>
   <div class="my-style">
-    <div :id="todo.id">
-      <h2 class="task-title">
-        {{ todo.title }}
-      </h2>
-    </div>
+    <router-link :to="{ name: 'TodoPage', params: {id: todo.id} }">
+    <h2> {{ todo.title }} </h2>
+    </router-link>
+    <TodoItemsList
+        :items="todo.items"
+    />
 
-    <todo-items-list :items ="todo.items"
-                     :key="todo.items.id"
-     />
   </div>
 </template>
 
@@ -16,9 +14,13 @@
 import TodoItemsList from "@/components/TodoItemsList.vue";
 
 export default {
-  components: {TodoItemsList},
+  components: { TodoItemsList},
   props: {
-    todo: {type: Object, required: true},
-  }
+    todo: {
+      type: Object,
+      required: true
+    },
+  },
 }
 </script>
+
