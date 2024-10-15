@@ -1,26 +1,33 @@
 <template>
   <div>
-    <Todo :todo="find(id)"/>
+    <div class="my-style">
+
+      <h2> {{ find(id).title}} </h2>
+
+      <TodoItemsListDetails
+          :items="this.todo.items"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import Todo from "@/components/details/Todo.vue";
+import TodoItemsListDetails from "@/components/details/TodoDetailsItemsList.vue";
 
 export default {
-  components: {Todo},
+  components: {TodoItemsListDetails},
   props: {
     id: String,
-    todo: Object,
     todos: {
       type: Array,
       required: true
     },
   },
+
   data() {
     return {
       todosDetails: this.todos,
-      todoItem:{
+      todo:{
         id: this.id,
         title: "Title",
         items:[{
@@ -31,16 +38,10 @@ export default {
       }
     }
   },
-  methods: {
+
+ methods: {
     find(id) {
-      this.todosDetails.map((todo) => {
-            if (todo.id == id) {
-              this.todoItem = todo;
-            }
-            return todo;
-          }
-      );
-      return this.todoItem;
+     return this.todo = this.todosDetails.find((todo) => todo.id.toString() === id);
     }
   }
 }

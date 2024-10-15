@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Todo from "@/components/Todo.vue";
-import { todos } from "../../public/data.js";
+import Todo from "@/components/main/Todo.vue";
+import { todos } from "../../../public/data.js";
 
 export default {
   components: {Todo},
