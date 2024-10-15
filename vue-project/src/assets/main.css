@@ -12,9 +12,9 @@ main {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 20px;
     text-transform: uppercase;
-    margin: 15px 0 10px 5px;
+    margin: 5px 0 10px 5px;
     color: #056565;
 }
 
@@ -28,10 +28,14 @@ h3 {
 a:link {
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
+    text-decoration: none;
 }
 
 a:hover {
     background-color: rgba(255, 255, 255, 0);
+    h2{
+        color: #129388;
+    }
 }
 
 ul {
@@ -70,10 +74,9 @@ hr {
 
 .checkbox-label {
     display: inline-block;
-    margin-top: 5px;
     margin-right: 10px;
-    height: 20px;
-    width: 20px;
+    height: 19px;
+    width: 19px;
     accent-color: #129388;
     border-color: #044c4c;
     cursor: pointer;
