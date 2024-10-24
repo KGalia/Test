@@ -1,30 +1,40 @@
 <template>
   <div class="logo">
-    <h2>Details To-Do</h2>
+    <h2> Details To-Do </h2>
   </div>
   <div class="my-style">
-    <TodoDetails
-        :id="id"
-        :todos="todos"
+    <TodoDetails :id="id"
+
     />
   </div>
 </template>
 
-<script>
+<script setup>
 import TodoDetails from "@/components/details/TodoDetails.vue";
-import {todos} from "/public/data.js";
 
-export default {
-  name: "DetailsPage",
-  components: {TodoDetails},
-  props: {
-    id: String,
-  },
+// import {todos} from "/public/data.js";
 
-  data() {
-    return {
-      todos: todos,
+const props = defineProps({
+
+      id: {
+        type: String,
+        required: true,
+      }
     }
-  }
-}
+)
 </script>
+
+// export default {
+//   name: "DetailsPage",
+//   components: {TodoDetails},
+//   props: {
+//     id: String,
+//   },
+//
+//   data() {
+//     return {
+//       todos: todos,
+//     }
+//   }
+// }
+
