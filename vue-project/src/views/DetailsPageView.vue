@@ -1,9 +1,9 @@
 <template>
   <div class="logo">
-    <h2> Details To-Do </h2>
+    <h1> Details To-Do </h1>
   </div>
   <div class="my-style">
-    <TodoDetails :id="id"
+    <TodoDetails :id="props.id"
 
     />
   </div>
@@ -12,10 +12,7 @@
 <script setup>
 import TodoDetails from "@/components/details/TodoDetails.vue";
 
-// import {todos} from "/public/data.js";
-
 const props = defineProps({
-
       id: {
         type: String,
         required: true,
@@ -24,17 +21,4 @@ const props = defineProps({
 )
 </script>
 
-// export default {
-//   name: "DetailsPage",
-//   components: {TodoDetails},
-//   props: {
-//     id: String,
-//   },
-//
-//   data() {
-//     return {
-//       todos: todos,
-//     }
-//   }
-// }
 
