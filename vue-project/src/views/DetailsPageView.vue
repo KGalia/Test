@@ -3,9 +3,7 @@
     <h1> Details To-Do </h1>
   </div>
   <div class="my-style">
-    <TodoDetails :id="props.id"
-
-    />
+    <TodoDetails :id="props.id"/>
   </div>
 </template>
 
