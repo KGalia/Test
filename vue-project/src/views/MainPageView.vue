@@ -1,15 +1,16 @@
 <template>
   <main>
-    <div class="logo"><h1> My to-do list </h1></div>
+    <div class="logo"><h2> My to-do list </h2></div>
 
     <div class="my-style">
       <TodoList/>
 
       <div class="btn-add">
 
-        <Buttons>
-          <router-link to="/create-page">➕</router-link>
-        </Buttons>
+        <router-link to="/create-page">
+          <Buttons>ADD</Buttons>
+        </router-link>
+
       </div>
 
     </div>
