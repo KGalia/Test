@@ -2,47 +2,32 @@
   <div>
     <div class="my-style">
 
-      <h2> {{ find(id).title}} </h2>
-
-      <TodoItemsListDetails
-          :items="this.todo.items"
+      <h2> {{ findTodo(props.id).title }} </h2>
+      <TodoDetailsItemsList
+          :items="findTodo(props.id).items"
       />
+
     </div>
   </div>
 </template>
 
-<script>
-import TodoItemsListDetails from "@/components/details/TodoDetailsItemsList.vue";
+<script setup>
+import TodoDetailsItemsList from "@/components/details/TodoDetailsItemsList.vue";
+import {storeToRefs} from 'pinia';
+import {useTodoStore} from "@/stores/TodoStore.js";
 
-export default {
-  components: {TodoItemsListDetails},
-  props: {
-    id: String,
-    todos: {
-      type: Array,
-      required: true
-    },
+const todoStore = useTodoStore();
+const {findTodo} = storeToRefs(todoStore)
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
   },
+});
 
-  data() {
-    return {
-      todosDetails: this.todos,
-      todo:{
-        id: this.id,
-        title: "Title",
-        items:[{
-          id: 1,
-          name: "Name ToDo",
-          done: false
-        }]
-      }
-    }
-  },
+// function find(id) {
+//   return todo = todoStore.todos.find((todo) => todo.id.toString() === id);
+// }
 
- methods: {
-    find(id) {
-     return this.todo = this.todosDetails.find((todo) => todo.id.toString() === id);
-    }
-  }
-}
 </script>

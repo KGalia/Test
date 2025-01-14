@@ -1,21 +1,13 @@
 <template>
-  <Todo
-      v-for="todo in todos"
+  <Todo v-for="todo of todoStore.todos"
       :todo="todo"
       :key="todo.id"
   />
 </template>
 
-<script>
+<script setup>
 import Todo from "@/components/main/Todo.vue";
-import { todos } from "../../../public/data.js";
+import { useTodoStore } from "@/stores/TodoStore.js";
 
-export default {
-  components: {Todo},
-  data() {
-    return {
-      todos: todos
-    }
-  }
-}
+const todoStore = useTodoStore();
 </script>
