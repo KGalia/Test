@@ -1,28 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainPage from "@/views/MainPageView.vue";
+import MainPageView from "@/views/MainPageView.vue";
 import DetailsPage from "@/views/DetailsPageView.vue";
-import CreatePage from "@/views/CreatePageView.vue";
 
-const router = createRouter({
+const index = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'HomePage',
-            component: MainPage
+            component: MainPageView
         },
         {
             path: '/todo-page/:id',
             name: 'TodoPage',
             component: DetailsPage,
             props: true,
-        },
-        {
-            path: '/create-page',
-            name: 'TodoCreate',
-            component: CreatePage,
-        },
+        }
     ]
 })
 
-export default router;
+export default index;

@@ -1,6 +1,6 @@
 <template>
   <div class="my-style">
-    <router-link :to="{ name: 'TodoPage', params: {id: props.todo.id} }">
+    <router-link :to="{ name: 'TodoPage', params: {id: todo.id} }">
     <h2> {{ props.todo.title }} </h2>
     </router-link>
 
