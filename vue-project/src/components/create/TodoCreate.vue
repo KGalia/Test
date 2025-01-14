@@ -1,8 +1,6 @@
 <template>
 
-  <InputCreateTitle></InputCreateTitle>
-
-
+  <InputCreateTitle/>
 
   <div class="task-item">
     <InputCreateItems/>
