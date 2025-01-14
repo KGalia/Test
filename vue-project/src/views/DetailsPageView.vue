@@ -1,11 +1,9 @@
 <template>
   <div class="logo">
-    <h1> Details To-Do </h1>
+    <h2> Details To-Do </h2>
   </div>
-  <div class="my-style">
-    <TodoDetails :id="props.id"
-
-    />
+  <div class="main-container">
+    <TodoDetails :id="props.id"/>
   </div>
 </template>
 

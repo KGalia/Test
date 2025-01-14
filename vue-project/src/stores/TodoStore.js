@@ -58,5 +58,8 @@ export const useTodoStore = defineStore('todoStore', {
         findTodo: (state) => {
             return (id) => state.todos.find((todo) => todo.id.toString() === id)
         },
+    },
+    actions:{
+
     }
 })
