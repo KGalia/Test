@@ -55,8 +55,7 @@ hr {
     color: #cac9c9;
     background-color: #cac9c9;
     height: 1px;
-    margin: 3px;
-    padding: 1px;
+    margin: 3px 3px;
 }
 
 .main-container{
@@ -99,14 +98,6 @@ hr {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.task-input {
-    width: 99%;
-    border-radius: 5px;
-    border: 1px solid rgba(204, 204, 204, 0.34);
-    padding: 5px;
-    margin-bottom: 10px;
 }
 
 .task_id {
@@ -158,14 +149,13 @@ button:hover {
 }
 
 .input-create-item{
-    width: 95%;
-    margin: 5px 0 5px 0;
+    width: 97%;
+    margin: 5px 5px 5px 0;
     padding: 5px 5px;
     background-color: white;
     color: #6c6c6c;
-    border-color: white;
-    border-radius: 5px;
-    caret-color: coral;
+    border: white;
+    caret-color: #f36f06;
 }
 
 .btn-input {
