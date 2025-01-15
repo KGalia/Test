@@ -1,20 +1,17 @@
 <template>
 
-  <div class="task-item">
     <InputCreateItems/>
-  </div>
 
-  <div class="task-li">
-    Список дел
-  </div>
 </template>
 
-<script>
+<script setup>
 import InputCreateItems from "@/components/create/InputCreateItems.vue";
+import {storeToRefs} from 'pinia';
+import {useTodoStore} from "@/stores/TodoStore.js";
 
-export default {
-  components: {InputCreateItems}
-}
+const todoStore = useTodoStore();
+const {addItemTodo} = storeToRefs(todoStore);
+
 
 </script>
 

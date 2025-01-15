@@ -3,6 +3,7 @@
     <div class="my-style">
 
       <h2> {{ findTodo(props.id).title }} </h2>
+
       <TodoDetailsItemsList
           :items="findTodo(props.id).items"
       />

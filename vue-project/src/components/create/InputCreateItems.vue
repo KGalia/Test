@@ -1,15 +1,21 @@
 <template>
-  <input v-model="newItemTodo"
-         type="text"
-         placeholder="Add a task"
-         @keyup.enter="addItemTodo"
-         class="input-create-item"
-  >
+  <div class="task-item">
+    <input v-model="newItemTodo"
+           type="text"
+           placeholder="Add a task"
+           @keyup.enter="addItemTodo"
+           class="input-create-item"
+    >
 
-  <div class="btn-add">
-    <Buttons class="btn-input-todo"
-             @click="addItemTodo">➕
-    </Buttons>
+    <div class="btn-add">
+      <Buttons class="btn-input-todo"
+               @click="addItemTodo">➕
+      </Buttons>
+    </div>
+  </div>
+
+  <div class="task-li">
+    <p> New task </p>
   </div>
 </template>
 

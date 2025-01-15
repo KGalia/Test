@@ -3,11 +3,14 @@
 
   <div class="main-container">
     <div class="my-style">
-      <TodoCreate></TodoCreate>
+
+      <TodoCreate/>
+
     </div>
   </div>
 </template>
 
 <script setup>
 import TodoCreate from "@/components/create/TodoCreate.vue";
+
 </script>
