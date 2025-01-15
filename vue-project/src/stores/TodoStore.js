@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia'
+import {defineStore} from 'pinia';
 import {v4 as uuidv4} from "uuid";
 
 export const useTodoStore = defineStore('todoStore', {
@@ -52,7 +52,7 @@ export const useTodoStore = defineStore('todoStore', {
                     }
                 ]
             },
-        ]
+        ],
     }),
     getters: {
         findTodo: (state) => {
@@ -60,9 +60,16 @@ export const useTodoStore = defineStore('todoStore', {
         },
     },
     actions: {
-        addItemTodo(todoItem){
-            this.todos.push(todoItem);
-            console.log(todoItem)
+        saveTodo(newTodo) {
+            this.todos.push(
+                {
+                    id: newTodo.id,
+                    title: newTodo.title,
+                    items: newTodo.items
+                }
+            );
+
+            console.log(this.todos);
         }
     }
 })

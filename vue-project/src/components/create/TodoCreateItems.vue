@@ -5,13 +5,7 @@
 </template>
 
 <script setup>
-import InputCreateItems from "@/components/create/InputCreateItems.vue";
-import {storeToRefs} from 'pinia';
-import {useTodoStore} from "@/stores/TodoStore.js";
-
-const todoStore = useTodoStore();
-const {addItemTodo} = storeToRefs(todoStore);
-
+import InputCreateItems from "@/components/create/InputCreateItem.vue";
 
 </script>
 
