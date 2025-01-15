@@ -20,6 +20,5 @@ const props = defineProps({
   }
 })
 import TodoItemsList from "@/components/main/TodoItemsList.vue";
-
 </script>
 

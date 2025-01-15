@@ -1,12 +1,19 @@
 <template>
+
+  <div class="task-item">
+    <InputCreateItems/>
+  </div>
+
   <div class="task-li">
     Список дел
   </div>
 </template>
 
 <script>
-export default {
+import InputCreateItems from "@/components/create/InputCreateItems.vue";
 
+export default {
+  components: {InputCreateItems}
 }
 
 </script>

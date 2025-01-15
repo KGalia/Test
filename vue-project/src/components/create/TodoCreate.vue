@@ -2,15 +2,13 @@
 
   <InputCreateTitle/>
 
-  <div class="task-item">
-    <InputCreateItems/>
-
-    <div class="btn-add">
-      <Buttons class="btn-input-todo">➕</Buttons>
-    </div>
-  </div>
-
   <TodoCreateItems/>
+
+  <div class="btn-add">
+    <router-link to="/">
+      <Buttons>SAVE</Buttons>
+    </router-link>
+  </div>
 
 </template>
 
@@ -26,15 +24,6 @@ export default {
 </script>
 
 <style scoped>
-.btn-input-todo {
-  background-color: rgba(36, 159, 149, 0.6);
-  color: #044c4c;
-  transition: all 0.7s ease;
-  padding: 5px;
-}
 
-.btn-input-todo:hover {
-  background-color: rgb(36, 159, 149);
-}
 
 </style>
