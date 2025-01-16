@@ -15,13 +15,20 @@
   </div>
 
   <div class="task-li">
-    <p> {{}} </p>
+    <p> {{props.newItems.name}} </p>
   </div>
 </template>
 
 <script setup>
-
 import Buttons from "@/components/UI/Buttons.vue";
+
+const props = defineProps({
+  newItems:{
+    type: Array,
+    required: true,
+    default:() => {}
+  },
+});
 
 </script>
 

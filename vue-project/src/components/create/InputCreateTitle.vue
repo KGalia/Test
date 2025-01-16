@@ -5,21 +5,19 @@
   placeholder="Add Title Todo">
 
   <h2 title="Change list title"
-      class="logo-title-todo">{{newTodo.title}}</h2>
+      class="logo-title-todo">{{props.newTodo.title}}</h2>
   <hr>
 
 </template>
 
-<script>
-export default {
-  components: {},
-  props: {
-    newTodo: {
-      type: Object,
-      required: true
-    },
-  }
-}
+<script setup>
+const props = defineProps({
+  newTodo:{
+    type: Object,
+    required: true,
+    default:() => {}
+  },
+});
 </script>
 
 <style scoped>

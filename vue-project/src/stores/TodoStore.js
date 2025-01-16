@@ -68,7 +68,6 @@ export const useTodoStore = defineStore('todoStore', {
                     items: newTodo.items
                 }
             );
-
             console.log(this.todos);
         }
     }

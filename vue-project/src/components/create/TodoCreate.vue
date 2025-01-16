@@ -1,8 +1,10 @@
 <template>
 
-  <InputCreateTitle :newTodo="newTodo"/>
+  <InputCreateTitle
+      :newTodo="newTodo"/>
 
-  <TodoCreateItems/>
+  <TodoCreateItems
+      :newTodo="newTodo"/>
 
   <div class="btn-add">
     <router-link to="/">
@@ -25,8 +27,8 @@ const store = useTodoStore();
 
 const newTodo = ref({
   id: uuidv4(),
-  title:'',
-  items:[]
+  title: '',
+  items: []
 });
 
 const saveTodo = () => {
