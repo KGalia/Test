@@ -69,6 +69,6 @@ export const useTodoStore = defineStore('todoStore', {
                 }
             );
             console.log(this.todos);
-        }
+        },
     }
 })

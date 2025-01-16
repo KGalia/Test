@@ -4,9 +4,10 @@
       :newTodo="newTodo"/>
 
   <TodoCreateItems
-      :newTodo="newTodo"/>
+      :newItems="newTodo.items"/>
 
-  <div class="btn-add">
+  <div v-if="newTodo.items.length > 0"
+      class="btn-add">
     <router-link to="/">
       <Buttons @click="saveTodo">SAVE</Buttons>
     </router-link>
@@ -34,6 +35,7 @@ const newTodo = ref({
 const saveTodo = () => {
   store.saveTodo(newTodo)
 }
+
 </script>
 
 <style scoped>
