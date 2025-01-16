@@ -107,7 +107,8 @@ hr {
 }
 
 .task-li {
-    padding: 5px 5px;
+    padding: 10px 0;
+    margin-bottom: 10px;
     list-style-type: none;
     color: #5a5959;
     text-transform: capitalize;
