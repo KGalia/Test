@@ -26,7 +26,7 @@ import {v4 as uuidv4} from "uuid";
 
 const store = useTodoStore();
 
-const newTodo = ref({
+const newTodo = ref ({
   id: uuidv4(),
   title: '',
   items: []

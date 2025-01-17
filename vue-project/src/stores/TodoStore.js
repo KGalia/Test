@@ -62,19 +62,16 @@ export const useTodoStore = defineStore('todoStore', {
     actions: {
         saveTodo(newTodo) {
             this.todos.push(
-                {
-                    id: newTodo.id,
-                    title: newTodo.title,
-                    items: newTodo.items
-                }
+                newTodo.value
             );
-            console.log(this.todos);
+            console.log( this.todos);
         },
-        addItem (newItemsTask){
-            this.todos.items = newItemsTask;
 
-            console.log(newItemsTask)
-        }
+        // addItem (newItemsTask){
+        //     this.todos.items = newItemsTask;
+        //
+        //     console.log(newItemsTask)
+        // }
         // addItemTask(addItem) {
         //     this.items = addItem;
         //     console.log(addItem);

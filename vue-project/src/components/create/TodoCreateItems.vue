@@ -1,14 +1,5 @@
 <template xmlns="http://www.w3.org/1999/html">
 
-  <div v-if="props.newItems.length === 0"
-       class="btn-task">
-
-    <Buttons @click="addTask"
-             class="btn-add-task"> Add Task
-    </Buttons>
-  </div>
-
-  <div v-else>
     <InputCreateItem
         :newItems="props.newItems"
         v-for="item in props.newItems"
@@ -18,8 +9,13 @@
         :newItem.name="item.name"
         :newItem.done="item.done"
     />
-  </div>
 
+  <div class="btn-task">
+
+    <Buttons @click="addTask"
+             class="btn-add-task"> Add Task
+    </Buttons>
+  </div>
 </template>
 
 <script setup>
@@ -36,6 +32,7 @@ const props = defineProps({
 });
 
 const addTask = () => {
+
   props.newItems.push(
       {
         id: 1,
@@ -59,7 +56,7 @@ const addTask = () => {
 }
 
 .btn-task {
-  text-align: center;
+  text-align: left;
 }
 
 </style>
