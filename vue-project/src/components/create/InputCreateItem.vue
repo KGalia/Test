@@ -1,23 +1,5 @@
 <template>
   <div class="task-item">
-    <!--    <div class="task-item">-->
-    <!--      <input-->
-    <!--          type="checkbox"-->
-    <!--          :id="props.newItem.id"-->
-    <!--          :checked="props.newItem.done"-->
-    <!--          class="checkbox-label"-->
-    <!--      />-->
-    <!--      <label-->
-    <!--          :for="props.newItem.id"-->
-    <!--          :class="{text_list_isShow:props.newItem.done }"-->
-    <!--      >-->
-
-    <!--      </label>-->
-    <!--    </div>-->
-    <ul class="task-li">
-      <li> {{ task.value }}</li>
-    </ul>
-
     <input v-model="task"
            type="text"
            :id="props.newItem.id"
@@ -32,37 +14,79 @@
     </div>
 
   </div>
+
+  <div class="task-item">
+    <input
+        type="checkbox"
+        :id="props.newItem.id"
+        :checked="props.newItem.done"
+        class="checkbox-label"
+    />
+    <label
+        :for="props.newItem.id"
+        :class="{text_list_isShow:props.newItem.done }"
+    >
+      <p>{{ props.newItem.name }}</p>
+
+    </label>
+  </div>
+  <hr>
 </template>
 
 <script setup>
 import Buttons from "@/components/UI/Buttons.vue";
 import {ref} from "vue";
 import {v4 as uuidv4} from "uuid";
+import {useTodoStore} from "@/stores/TodoStore.js";
+
+const store = useTodoStore();
 
 const task = ref('');
 const props = defineProps({
-  newItems: {
-    type: Array,
-    required: true,
-  },
   newItem: {
     type: Object,
     required: true,
-    default: () => {
-    }
+    id: Number,
+    name: String,
+    done: Boolean
   },
+  newItems: {
+    type: Array,
+    required: true
+  }
 });
+// const addItem = () => {
+//   let newItemTask = {
+//     id: uuidv4(),
+//     name: task.value,
+//     done: false
+//   }
+//   store.addItem(newItemTask);
+// }
 
+// const newItem = ref({
+//
+// });
 
 const addItem = () => {
-  props.newItems.unshift(
-      {
-        id: uuidv4(),
+ props.newItems.push(
+      { id :uuidv4(),
         name: task.value,
         done: false
-      })
+  })
+  store.addItem (props.newItems);
   console.log(props.newItems)
 }
+
+// const addItem = () => {
+//   props.newItems.push(
+//       { id :uuidv4(),
+//         name: task.value,
+//         done: false
+//   })
+//
+//   store.addItemTask(addItem);
+// }
 
 </script>
 

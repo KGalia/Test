@@ -10,10 +10,13 @@
 
   <div v-else>
     <InputCreateItem
-        :newItems="newItems"
+        :newItems="props.newItems"
         v-for="item in props.newItems"
         :key="item.id"
         :newItem="item"
+        :newItem.id="item.id"
+        :newItem.name="item.name"
+        :newItem.done="item.done"
     />
   </div>
 
