@@ -26,9 +26,4 @@ const props = defineProps({
     required: true,
   },
 });
-
-// function find(id) {
-//   return todo = todoStore.todos.find((todo) => todo.id.toString() === id);
-// }
-
 </script>

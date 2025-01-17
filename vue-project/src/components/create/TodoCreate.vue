@@ -35,10 +35,4 @@ const newTodo = ref ({
 const saveTodo = () => {
   store.saveTodo(newTodo)
 }
-
 </script>
-
-<style scoped>
-
-
-</style>

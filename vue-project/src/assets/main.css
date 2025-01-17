@@ -12,17 +12,15 @@ main {
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
-    margin: 5px 0 5px 5px;
+    margin: 5px 0 7px 0;
     color: #056565;
 }
 
-h3 {
-    margin: 20px 20px 20px 20px;
-    text-align: center;
-    font-size: 18px;
-    color: red;
+p {
+    color: #292b2b;
+    font-size: 16px;
 }
 
 a:link {
@@ -37,7 +35,6 @@ a:hover {
         color: #129388;
     }
 }
-
 
 .logo {
     text-align: center;
@@ -69,13 +66,6 @@ hr {
     margin-bottom: 10px;
 }
 
-.my-list {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
-    grid-gap: 7px;
-}
-
 .checkbox-label {
     display: inline-block;
     margin-right: 10px;
@@ -89,44 +79,8 @@ hr {
 .task-item {
     display: flex;
     align-items: center;
-}
-
-.task-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.task_id {
-    margin: 5px 0 5px 0;
-    color: #14ac9f;
-    font-weight: bold;
-}
-
-.task-li {
-    padding: 10px 0;
-    margin-bottom: 10px;
-    list-style-type: none;
-    color: #5a5959;
     text-transform: capitalize;
-}
-
-.task-name {
-    margin: 5px 0 5px 0;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 80% 15%;
-    column-gap: 20px;
-}
-
-.text_list {
-    text-transform: capitalize;
-    cursor: pointer;
-}
-
-.text_list_isShow {
-    color: #acabab;
-    text-decoration: line-through;
+    margin-bottom: 5px;
 }
 
 button {
@@ -148,11 +102,14 @@ button:hover {
 
 .input-create-item{
     width: 97%;
+    height: auto;
     margin: 5px 5px 5px 0;
     padding: 5px 5px;
     background-color: white;
-    color: #6c6c6c;
     border: white;
+    text-transform: capitalize;
+    color: #292b2b;
+    font-size: 16px;
     caret-color: #f36f06;
 }
 
@@ -167,28 +124,5 @@ button:hover {
 
 .btn-input:hover {
     background-color: rgb(36, 159, 149);
-}
-
-.btn-yes {
-    color: white;
-    background-color: #e45353;
-    margin-right: 5px;
-    padding: 8px 20px;
-    cursor: pointer;
-}
-
-.btn-yes:hover {
-    background-color: #aa3434;
-}
-
-.btn-no {
-    color: white;
-    background-color: #129388;
-    cursor: pointer;
-    padding: 8px 25px;
-}
-
-.btn-no:hover {
-    background-color: #044c4c;
 }
 

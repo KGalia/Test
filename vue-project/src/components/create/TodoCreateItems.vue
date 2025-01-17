@@ -1,4 +1,4 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
 
     <InputCreateItem
         :newItems="props.newItems"
@@ -32,7 +32,6 @@ const props = defineProps({
 });
 
 const addTask = () => {
-
   props.newItems.push(
       {
         id: 1,
@@ -48,7 +47,7 @@ const addTask = () => {
   color: #4e4c4c;
   transition: all 0.7s ease;
   padding: 7px;
-  margin: 5px 0 5px 0;
+  margin: 15px 0 5px 0;
 }
 
 .btn-add-task:hover {

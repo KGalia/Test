@@ -8,17 +8,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import TodoDetailsItem from "@/components/details/TodoDetailsItem.vue";
 
-export default {
-  components: {TodoDetailsItem},
-
-  props: {
-    items: {
-      type: Array,
-      required: true
-    },
-  }
-}
+const props = defineProps({
+  items: {
+    type: Array,
+    required: true
+  },
+});
 </script>

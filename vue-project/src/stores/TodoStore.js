@@ -67,37 +67,5 @@ export const useTodoStore = defineStore('todoStore', {
             console.log( this.todos);
         },
 
-        // addItem (newItemsTask){
-        //     this.todos.items = newItemsTask;
-        //
-        //     console.log(newItemsTask)
-        // }
-        // addItemTask(addItem) {
-        //     this.items = addItem;
-        //     console.log(addItem);
-        // },
-
-        // addItem(newItemTask) {
-        //    this.todos.items.push(
-        //             {
-        //                 id: newItemTask.id,
-        //                 name: newItemTask.name,
-        //                 done: newItemTask.done
-        //             }
-        //
-        //     );
-        //     console.log(newItemTask)
-        // },
-
-        // addItem(newItem) {
-        //     // this.items.push(
-        //     //      {
-        //     //         id: newItem.id,
-        //     //         name: newItem.name,
-        //     //         done: newItem.done
-        //     //     }
-        //     // );
-        //     console.log(newItem);
-        // },
     }
 })

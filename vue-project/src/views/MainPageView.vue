@@ -18,12 +18,8 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import TodoList from "@/components/main/TodoList.vue";
 import Buttons from "@/components/UI/Buttons.vue";
 
-export default {
-  name: 'MainPage',
-  components: {TodoList, Buttons},
-}
 </script>
