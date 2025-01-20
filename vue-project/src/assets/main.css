@@ -57,6 +57,7 @@ hr {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
+
 }
 
 .my-style {
@@ -74,6 +75,15 @@ hr {
     accent-color: #129388;
     border-color: #044c4c;
     cursor: pointer;
+}
+
+.text_list_isShow{
+    text-decoration: line-through;
+    text-decoration-color: #14ac9f;
+}
+
+.text_list_isShow p{
+    color: #8c8b8b;
 }
 
 .task-item {
