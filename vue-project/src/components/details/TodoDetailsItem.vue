@@ -1,27 +1,33 @@
 <template>
   <div class="details-item">
     <input
+        v-model="item.done"
+        @click="store.toggleTaskClass(item.id)"
         type="checkbox"
-        :id="item.id"
-        :checked="item.done"
+        :id="props.item.id"
+        :checked="props.item.done"
         class="checkbox-label"
     />
     <label
         :for="item.id"
-        :class="{text_list_isShow:item.done }"
+        :class="{text_list_isShow: item.done}"
     >
-     <p> {{ item.name }} </p>
+      <p @click="store.toggleTaskClass(item.id)">
+        {{ props.item.name }} </p>
     </label>
 
- <div class="btn-add">
-   <Buttons class="btn-del"> ❌ </Buttons>
- </div>
+    <div class="btn-add">
+      <Buttons class="btn-del"> ❌</Buttons>
+    </div>
   </div>
 
 </template>
 
 <script setup>
+import {useTodoStore} from "@/stores/TodoStore.js";
 import Buttons from "@/components/UI/Buttons.vue";
+
+const store = useTodoStore();
 
 const props = defineProps({
   item: {
@@ -29,6 +35,7 @@ const props = defineProps({
     required: true
   },
 });
+
 </script>
 
 <style scoped>

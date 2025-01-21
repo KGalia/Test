@@ -2,17 +2,20 @@
   <div>
     <div class="my-style">
 
-      <h2> {{ findTodo(props.id).title }} </h2>
+      <h2> {{ todo.title }} </h2>
 
       <TodoDetailsItemsList
-          :items="findTodo(props.id).items"
+          :items="todo.items"
       />
       <div>
         <Buttons class="btn-new-task">ADD</Buttons>
       </div>
 <hr>
       <div class="btn-add">
-        <Buttons class="btn-save">Save</Buttons>
+        <router-link to="/">
+        <Buttons @click="editTodo()"
+            class="btn-save">Save</Buttons>
+        </router-link>
       </div>
 
     </div>
@@ -21,19 +24,25 @@
 
 <script setup>
 import TodoDetailsItemsList from "@/components/details/TodoDetailsItemsList.vue";
-import {storeToRefs} from 'pinia';
 import {useTodoStore} from "@/stores/TodoStore.js";
 import Buttons from "@/components/UI/Buttons.vue";
 
 const todoStore = useTodoStore();
-const {findTodo} = storeToRefs(todoStore)
 
 const props = defineProps({
   id: {
     type: String,
     required: true,
   },
+
 });
+
+const todo = todoStore.findTodo(props.id);
+
+const editTodo = () => {
+  todoStore.editTodo(todo)
+}
+
 </script>
 
 <style scoped>

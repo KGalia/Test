@@ -7,7 +7,7 @@
       :newItems="newTodo.items"/>
 
   <div v-if="newTodo.items.length > 0"
-      class="btn-add">
+       class="btn-add">
     <router-link to="/">
       <Buttons @click="saveTodo">SAVE</Buttons>
     </router-link>
@@ -26,13 +26,15 @@ import {v4 as uuidv4} from "uuid";
 
 const store = useTodoStore();
 
-const newTodo = ref ({
+const newTodo = ref({
   id: uuidv4(),
   title: '',
   items: []
 });
 
 const saveTodo = () => {
-  store.saveTodo(newTodo)
+    store.createTodo(newTodo);
+
+  console.log(newTodo);
 }
 </script>

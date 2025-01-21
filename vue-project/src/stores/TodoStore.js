@@ -60,12 +60,27 @@ export const useTodoStore = defineStore('todoStore', {
         },
     },
     actions: {
-        saveTodo(newTodo) {
+        createTodo(newTodo) {
             this.todos.push(
                 newTodo.value
             );
-            console.log( this.todos);
         },
 
+        deleteTodo(id) {
+            this.todos = this.todos.filter(todo => todo.id !== id);
+        },
+
+        editTodo(newTodo) {
+            this.todos.map(function (todo) {
+                if (todo.id === newTodo.id) {
+                   return newTodo.value;
+                }
+            });
+            console.log(newTodo);
+        },
+
+        toggleTaskClass(id) {
+            console.log(id);
+        }
     }
 })

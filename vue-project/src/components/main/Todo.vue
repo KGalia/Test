@@ -9,7 +9,8 @@
     />
 
     <div class="btn-add">
-      <Buttons class="btn-del-todo">Delete</Buttons>
+      <Buttons @click="store.deleteTodo(todo.id)"
+          class="btn-del-todo">Delete</Buttons>
     </div>
 
   </div>
@@ -17,6 +18,9 @@
 
 <script setup>
 import Buttons from "@/components/UI/Buttons.vue";
+import {useTodoStore} from "@/stores/TodoStore.js";
+
+const store = useTodoStore();
 
 const props = defineProps({
   todo: {
