@@ -19,6 +19,7 @@
 <script setup>
 import Buttons from "@/components/UI/Buttons.vue";
 import {useTodoStore} from "@/stores/TodoStore.js";
+import TodoItemsList from "@/components/main/TodoItemsList.vue";
 
 const store = useTodoStore();
 
@@ -30,7 +31,8 @@ const props = defineProps({
     }
   }
 })
-import TodoItemsList from "@/components/main/TodoItemsList.vue";
+
+
 </script>
 
 <style scoped>

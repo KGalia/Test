@@ -58,6 +58,9 @@ export const useTodoStore = defineStore('todoStore', {
         findTodo: (state) => {
             return (id) => state.todos.find((todo) => todo.id.toString() === id)
         },
+        filterTodo: (state) => {
+            return (id) => state.todos.items.find((todo) => todo.id.toString() === id)
+        }
     },
     actions: {
         createTodo(newTodo) {
@@ -78,9 +81,5 @@ export const useTodoStore = defineStore('todoStore', {
             });
             console.log(newTodo);
         },
-
-        toggleTaskClass(id) {
-            console.log(id);
-        }
     }
 })
