@@ -56,12 +56,10 @@ export const useTodoStore = defineStore('todoStore', {
     }),
     getters: {
         findTodo: (state) => {
-            return (id) => state.todos.find((todo) => todo.id.toString() === id)
+            return (id) => state.todos.find((todo) => todo.id.toString() === id);
         },
-        filterTodo: (state) => {
-            return (id) => state.todos.items.find((todo) => todo.id.toString() === id)
-        }
     },
+
     actions: {
         createTodo(newTodo) {
             this.todos.push(
@@ -79,7 +77,6 @@ export const useTodoStore = defineStore('todoStore', {
                    return newTodo.value;
                 }
             });
-            console.log(newTodo);
         },
     }
 })
