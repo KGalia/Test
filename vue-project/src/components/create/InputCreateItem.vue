@@ -17,7 +17,8 @@ const props = defineProps({
     required: true,
     id: Number,
     name: String,
-    done: Boolean
+    done: Boolean,
+    isDeleted: Boolean
   },
 
   newItems: {

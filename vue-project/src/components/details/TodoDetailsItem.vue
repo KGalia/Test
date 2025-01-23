@@ -1,5 +1,7 @@
 <template>
-  <div class="details-item">
+  <div v-if="isVisible"
+      class="details-item">
+    <div class="task-item">
     <input
         v-model="props.item.done"
         @click="toggleTaskClass()"
@@ -15,9 +17,10 @@
       <p @click="toggleTaskClass()">
         {{ props.item.name }} </p>
     </label>
+    </div>
 
     <div class="btn-add">
-      <Buttons @click="deleteTask(props.items.id)"
+      <Buttons @click="deleteTask()"
                class="btn-del"> ❌
       </Buttons>
     </div>
@@ -27,7 +30,11 @@
 
 <script setup>
 import Buttons from "@/components/UI/Buttons.vue";
-import { reactive, computed } from "vue";
+import {useTodoStore} from "@/stores/TodoStore.js";
+import {ref} from "vue";
+
+const store = useTodoStore();
+// const { items } = storeToRefs(store);
 
 const props = defineProps({
   item: {
@@ -44,14 +51,13 @@ const toggleTaskClass = () => {
   props.item.done = !props.item.done;
 };
 
-const itemsNew = reactive(props.items)
+const items = props.items;
+const isVisible = ref(true);
 
-const deleteTask = computed((id) =>
- itemsNew.filter(item => item.id !== id))
-
-// const deleteTask = (id) => {
-//   itemsNew = itemsNew.filter(item => item.id !== id);
-// }
+const deleteTask = () => {
+ props.item.isDeleted = !props.item.isDeleted;
+ isVisible.value = !isVisible.value;
+}
 
 </script>
 
@@ -71,6 +77,7 @@ const deleteTask = computed((id) =>
 
 .details-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin: 0 5px 0 5px;
 }

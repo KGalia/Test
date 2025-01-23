@@ -8,6 +8,7 @@
         :newItem.id="item.id"
         :newItem.name="item.name"
         :newItem.done="item.done"
+        :newItem.isDeleted="item.isDeleted"
     />
 
   <div class="btn-task">

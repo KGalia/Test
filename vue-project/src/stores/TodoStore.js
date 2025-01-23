@@ -11,17 +11,20 @@ export const useTodoStore = defineStore('todoStore', {
                     {
                         id: uuidv4(1),
                         name: 'Add New Todo',
-                        done: false
+                        done: false,
+                        isDeleted: false
                     },
                     {
                         id: uuidv4(2),
                         name: 'Super task',
-                        done: true
+                        done: true,
+                        isDeleted: false
                     },
                     {
                         id: uuidv4(3),
                         name: 'My new task',
-                        done: false
+                        done: false,
+                        isDeleted: false
                     }
                 ]
             },
@@ -32,7 +35,8 @@ export const useTodoStore = defineStore('todoStore', {
                     {
                         id: uuidv4(4),
                         name: 'My new task',
-                        done: true
+                        done: true,
+                        isDeleted: false
                     }
                 ]
             },
@@ -43,12 +47,14 @@ export const useTodoStore = defineStore('todoStore', {
                     {
                         id: uuidv4(5),
                         name: 'Super task',
-                        done: true
+                        done: true,
+                        isDeleted: false
                     },
                     {
                         id: uuidv4(6),
                         name: 'My new task',
-                        done: false
+                        done: false,
+                        isDeleted: false
                     }
                 ]
             },
@@ -72,9 +78,11 @@ export const useTodoStore = defineStore('todoStore', {
         },
 
         editTodo(newTodo) {
+            newTodo.items = newTodo.items.filter(item => item.isDeleted === false);
+
             this.todos.map(function (todo) {
                 if (todo.id === newTodo.id) {
-                   return newTodo.value;
+                    return newTodo;
                 }
             });
         },
