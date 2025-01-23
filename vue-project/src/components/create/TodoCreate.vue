@@ -34,7 +34,5 @@ const newTodo = ref({
 
 const saveTodo = () => {
     store.createTodo(newTodo);
-
-  console.log(newTodo);
 }
 </script>

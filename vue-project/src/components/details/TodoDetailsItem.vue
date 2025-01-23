@@ -1,49 +1,60 @@
 <template>
-  <div v-if="isVisible"
-      class="details-item">
+  <div v-show="isVisible"
+       class="details-item">
+
     <div class="task-item">
-    <input
-        v-model="props.item.done"
-        @click="toggleTaskClass()"
-        :key="props.item.id"
-        type="checkbox"
-        :checked="props.item.done"
-        class="checkbox-label"
-    />
-    <label
-        :for="item.id"
-        :class="{text_list_isShow: props.item.done}"
-    >
-      <p @click="toggleTaskClass()">
-        {{ props.item.name }} </p>
-    </label>
+
+      <input
+          v-model="props.item.done"
+          @click="toggleTaskClass()"
+          :key="props.item.id"
+          type="checkbox"
+          :checked="props.item.done"
+          class="checkbox-label"
+      />
+
+      <label
+          :for="item.id"
+          :class="{text_list_isShow: props.item.done}"
+      >
+        <p v-show="isAuth" @click="show">
+          {{ props.item.name }} </p>
+
+      </label>
     </div>
+
+    <input v-model="newTask"
+           v-show="!isAuth"
+           @keyup.enter="changeTask"
+           type="text"
+           :id="props.item.id"
+           placeholder="Name task"
+           class="input-create-item"
+    />
 
     <div class="btn-add">
       <Buttons @click="deleteTask()"
                class="btn-del"> ❌
       </Buttons>
     </div>
+
   </div>
 
 </template>
 
 <script setup>
 import Buttons from "@/components/UI/Buttons.vue";
-import {useTodoStore} from "@/stores/TodoStore.js";
 import {ref} from "vue";
-
-const store = useTodoStore();
-// const { items } = storeToRefs(store);
 
 const props = defineProps({
   item: {
     type: Object,
     required: true
   },
+
   items: {
     type: Array,
-    required:true
+    required: true
   }
 });
 
@@ -51,12 +62,22 @@ const toggleTaskClass = () => {
   props.item.done = !props.item.done;
 };
 
-const items = props.items;
+const newTask = ref("");
 const isVisible = ref(true);
+const isAuth = ref(true);
+
+const show = () => {
+  isAuth.value = !isAuth.value;
+}
+
+const changeTask = () => {
+  props.item.name = newTask.value;
+  isAuth.value = !isAuth.value;
+}
 
 const deleteTask = () => {
- props.item.isDeleted = !props.item.isDeleted;
- isVisible.value = !isVisible.value;
+  props.item.isDeleted = !props.item.isDeleted;
+  isVisible.value = false;
 }
 
 </script>

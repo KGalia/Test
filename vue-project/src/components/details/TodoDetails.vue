@@ -1,20 +1,47 @@
 <template>
   <div>
     <div class="my-style">
+      <template v-if="isVisible">
+        <input v-model="newTitle"
+               @keyup.enter="addTitle"
+               class="input-create-item"
+               type="text"
+               placeholder="Add Title Todo">
+      </template>
 
-      <h2> {{ todo.title }} </h2>
+      <template v-else>
+        <h2 title="Change list title"
+            @click="show"
+            class="logo-title-todo">{{ todo.title }}</h2>
+      </template>
 
       <TodoDetailsItemsList
           :items="todo.items"
       />
-      <div>
-        <Buttons class="btn-new-task">ADD</Buttons>
-      </div>
-<hr>
+
+      <template v-if="isVisibleInput">
+        <input v-model="nameTask"
+               @keyup.enter="addNewTask"
+               class="input-create-item"
+               type="text"
+               placeholder="Add new task">
+      </template>
+
+      <template v-else>
+        <div>
+          <Buttons @click="showInput"
+                   class="btn-new-task">ADD
+          </Buttons>
+        </div>
+      </template>
+
+      <hr>
+
       <div class="btn-add">
         <router-link to="/">
-        <Buttons @click="editTodo()"
-            class="btn-save">Save</Buttons>
+          <Buttons @click="editTodo()"
+                   class="btn-save"> Save
+          </Buttons>
         </router-link>
       </div>
 
@@ -26,8 +53,14 @@
 import TodoDetailsItemsList from "@/components/details/TodoDetailsItemsList.vue";
 import {useTodoStore} from "@/stores/TodoStore.js";
 import Buttons from "@/components/UI/Buttons.vue";
+import {ref} from "vue";
+import {v4 as uuidv4} from "uuid";
 
 const todoStore = useTodoStore();
+
+const newTitle = ref("");
+const isVisible = ref(false);
+const isVisibleInput = ref(false);
 
 const props = defineProps({
   id: {
@@ -37,10 +70,36 @@ const props = defineProps({
 
 });
 
+const nameTask = ref("")
+
 const todo = todoStore.findTodo(props.id);
 
 const editTodo = () => {
   todoStore.editTodo(todo)
+};
+
+const addTitle = () => {
+  todo.title = newTitle.value;
+  isVisible.value = !isVisible.value;
+}
+const show = () => {
+  isVisible.value = !isVisible.value;
+}
+
+const showInput = () => {
+  isVisibleInput.value = !isVisibleInput.value;
+}
+
+const addNewTask = () => {
+  todo.items.push(
+      {
+        id: uuidv4(),
+        name: nameTask,
+        done: false,
+        isDeleted: false
+      })
+
+  isVisibleInput.value = !isVisibleInput.value;
 }
 
 </script>
@@ -66,6 +125,7 @@ const editTodo = () => {
   padding: 5px 15px;
   margin: 5px 5px;
 }
+
 .btn-new-task:hover {
   background-color: rgb(5, 101, 101);
 }

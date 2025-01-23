@@ -17,9 +17,6 @@
 
 <script setup>
 import {ref} from "vue";
-import {useTodoStore} from "@/stores/TodoStore.js";
-
-const store = useTodoStore();
 
 const newTitle = ref("");
 const isVisible = ref(true);
@@ -38,7 +35,3 @@ const addTitle = () => {
   isVisible.value = false;
 }
 </script>
-
-<style scoped>
-
-</style>

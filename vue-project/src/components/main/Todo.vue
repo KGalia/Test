@@ -9,6 +9,10 @@
     />
 
     <div class="btn-add">
+      <router-link :to="{ name: 'TodoPage', params: {id: props.todo.id} }">
+        <Buttons class="btn-edit-todo"> ✏️ </Buttons>
+      </router-link>
+
       <Buttons @click="store.deleteTodo(todo.id)"
           class="btn-del-todo">Delete</Buttons>
     </div>
@@ -47,6 +51,19 @@ const props = defineProps({
 
 .btn-del-todo:hover {
   background-color: rgb(248, 138, 138);
+}
+
+.btn-edit-todo {
+  background-color: rgb(244, 244, 210);
+  transition: all 0.7s ease;
+  padding: 6px 15px 7px 15px;
+  margin: 10px 5px 10px 0;
+  font-size: 12px;
+  border-color: rgb(234, 234, 164);
+}
+
+.btn-edit-todo:hover {
+  background-color: rgb(232, 232, 234);
 }
 
 </style>
