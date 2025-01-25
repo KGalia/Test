@@ -8,8 +8,11 @@
 
   <div v-if="newTodo.items.length > 0"
        class="btn-add">
+
     <router-link to="/">
-      <Buttons @click="saveTodo">SAVE</Buttons>
+      <Buttons @click="saveTodo"
+               class="btn-save">SAVE
+      </Buttons>
     </router-link>
   </div>
 
@@ -33,6 +36,20 @@ const newTodo = ref({
 });
 
 const saveTodo = () => {
-    store.createTodo(newTodo);
+  store.createTodo(newTodo);
 }
 </script>
+
+<style scoped>
+.btn-save {
+  background-color: rgb(214, 213, 213);
+  color: #4e4c4c;
+  transition: all 0.7s ease;
+  padding: 5px 10px;
+  margin: 5px 5px;
+}
+
+.btn-save:hover {
+  background-color: rgb(234, 231, 231);
+}
+</style>

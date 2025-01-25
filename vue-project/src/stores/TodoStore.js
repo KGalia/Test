@@ -86,5 +86,9 @@ export const useTodoStore = defineStore('todoStore', {
                 }
             });
         },
+
+        addItemsTodo(newItems) {
+            this.todos.items = newItems;
+        },
     }
 })

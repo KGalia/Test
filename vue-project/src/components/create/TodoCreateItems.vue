@@ -12,16 +12,17 @@
     />
 
   <div class="btn-task">
-
     <Buttons @click="addTask"
              class="btn-add-task"> Add Task
     </Buttons>
   </div>
+
 </template>
 
 <script setup>
 import InputCreateItem from "@/components/create/InputCreateItem.vue";
 import Buttons from "@/components/UI/Buttons.vue";
+import {v4 as uuidv4} from "uuid";
 
 const props = defineProps({
   newItems: {
@@ -35,7 +36,7 @@ const props = defineProps({
 const addTask = () => {
   props.newItems.push(
       {
-        id: 1,
+        id: uuidv4(),
         name: '',
         done: false
       })
@@ -44,15 +45,16 @@ const addTask = () => {
 
 <style scoped>
 .btn-add-task {
-  background-color: rgb(214, 213, 213);
-  color: #4e4c4c;
+  background-color: rgb(20, 172, 159);
+  color: #f6f7f8;
+  font-size: 14px;
   transition: all 0.7s ease;
-  padding: 7px;
-  margin: 15px 0 5px 0;
+  padding: 5px 15px;
+  margin: 5px 5px;
 }
 
 .btn-add-task:hover {
-  background-color: rgb(234, 231, 231);
+  background-color: rgb(5, 101, 101);
 }
 
 .btn-task {

@@ -31,7 +31,11 @@ const props = defineProps({
 })
 
 const addTitle = () => {
-  props.newTodo.title = newTitle.value;
+  if (newTitle.value.length === 0) {
+    props.newTodo.title = "New Title";
+  } else {
+    props.newTodo.title = newTitle.value;
+  }
   isVisible.value = false;
 }
 </script>

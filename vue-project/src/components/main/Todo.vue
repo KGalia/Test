@@ -54,16 +54,15 @@ const props = defineProps({
 }
 
 .btn-edit-todo {
-  background-color: rgb(244, 244, 210);
+  background-color: rgba(36, 159, 149, 0.6);
   transition: all 0.7s ease;
   padding: 6px 15px 7px 15px;
   margin: 10px 5px 10px 0;
   font-size: 12px;
-  border-color: rgb(234, 234, 164);
 }
 
 .btn-edit-todo:hover {
-  background-color: rgb(232, 232, 234);
+  background-color: rgba(167, 232, 226, 0.6);
 }
 
 </style>

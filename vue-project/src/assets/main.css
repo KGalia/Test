@@ -31,7 +31,8 @@ a:link {
 
 a:hover {
     background-color: rgba(255, 255, 255, 0);
-    h2{
+
+    h2 {
         color: #129388;
     }
 }
@@ -52,7 +53,7 @@ hr {
     margin: 5px 3px;
 }
 
-.main-container{
+.main-container {
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -77,12 +78,12 @@ hr {
     cursor: pointer;
 }
 
-.text_list_isShow{
+.text_list_isShow {
     text-decoration: line-through;
     text-decoration-color: #14ac9f;
 }
 
-.text_list_isShow p{
+.text_list_isShow p {
     color: #8c8b8b;
 }
 
@@ -110,7 +111,7 @@ button:hover {
     text-align: right;
 }
 
-.input-create-item{
+.input-create-item {
     width: 97%;
     height: auto;
     margin: 5px 5px 5px 0;
