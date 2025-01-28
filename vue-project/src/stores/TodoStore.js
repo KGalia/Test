@@ -1,94 +1,83 @@
 import {defineStore} from 'pinia';
-import {v4 as uuidv4} from "uuid";
+// import {v4 as uuidv4} from "uuid";
+import {ref } from "vue";
 
-export const useTodoStore = defineStore('todoStore', {
-    state: () => ({
-        todos: [
-            {
-                id: 1,
-                title: 'Add Title Todo',
-                items: [
-                    {
-                        id: uuidv4(1),
-                        name: 'Add New Todo',
-                        done: false,
-                        isDeleted: false
-                    },
-                    {
-                        id: uuidv4(2),
-                        name: 'Super task',
-                        done: true,
-                        isDeleted: false
-                    },
-                    {
-                        id: uuidv4(3),
-                        name: 'My new task',
-                        done: false,
-                        isDeleted: false
-                    }
-                ]
-            },
-            {
-                id: 2,
-                title: 'My Title Todo',
-                items: [
-                    {
-                        id: uuidv4(4),
-                        name: 'My new task',
-                        done: true,
-                        isDeleted: false
-                    }
-                ]
-            },
-            {
-                id: 3,
-                title: 'Add New Title',
-                items: [
-                    {
-                        id: uuidv4(5),
-                        name: 'Super task',
-                        done: true,
-                        isDeleted: false
-                    },
-                    {
-                        id: uuidv4(6),
-                        name: 'My new task',
-                        done: false,
-                        isDeleted: false
-                    }
-                ]
-            },
-        ],
-    }),
-    getters: {
-        findTodo: (state) => {
-            return (id) => state.todos.find((todo) => todo.id.toString() === id);
-        },
-    },
+// export const useTodoStore = defineStore('todoStore', {
+//     state: () => ({
+//         todos: [],
+//
+//     }),
+//
+//     const todosInLocalStorage = localStorage.getItem("todos");
+//
+//     getters: {
+//         findTodo: (state) => {
+//             return (id) => state.todos.find((todo) => todo.id.toString() === id);
+//         },
+//     },
+//
+//     actions: {
+//         createTodo(newTodo) {
+//             this.todos.push(
+//                 newTodo.value
+//             );
+//         },
+//
+//         deleteTodo(id) {
+//             this.todos = this.todos.filter(todo => todo.id !== id);
+//         },
+//
+//         editTodo(newTodo) {
+//             newTodo.value = newTodo.items.filter(item => item.isDeleted === false);
+//
+//             this.todos.map(function (todo) {
+//                 if (todo.id === newTodo.value.id) {
+//                     return newTodo.value;
+//                 }
+//             });
+//         },
+//
+//         addItemsTodo(newItems) {
+//             this.todos.items = newItems.value;
+//         },
+//     }
+// });
 
-    actions: {
-        createTodo(newTodo) {
-            this.todos.push(
-                newTodo.value
-            );
-        },
+export const useTodoStore = defineStore("todoStore", () => {
+    const todos = ref([]);
 
-        deleteTodo(id) {
-            this.todos = this.todos.filter(todo => todo.id !== id);
-        },
-
-        editTodo(newTodo) {
-            newTodo.items = newTodo.items.filter(item => item.isDeleted === false);
-
-            this.todos.map(function (todo) {
-                if (todo.id === newTodo.id) {
-                    return newTodo;
-                }
-            });
-        },
-
-        addItemsTodo(newItems) {
-            this.todos.items = newItems;
-        },
+    const todosInLocalStorage = localStorage.getItem('todos');
+    if (todosInLocalStorage) {
+        todos.value = JSON.parse(todosInLocalStorage).value;
     }
-})
+
+    const findTodo = (id) => {
+        return (id) = todos.value.find((todo) => todo.id.toString() === id);
+    };
+
+    const createTodo = (newTodo) => {
+        todos.value.push(
+            newTodo.value
+        );
+    };
+
+    const deleteTodo = (id) => {
+        todos.value = todos.value.filter((todo) => todo.id !== id);
+    };
+
+    const editTodo = (newTodo) => {
+        newTodo = newTodo.items.filter((item) => item.isDeleted === false);
+
+        todos.value.map(function (todo) {
+            if (todo.id === newTodo.id) {
+                return newTodo;
+            }
+        });
+    };
+    const addItemsTodo = (newItems) => {
+        todos.value.items = newItems;
+    };
+
+    return {todos, findTodo, createTodo, deleteTodo, editTodo, addItemsTodo};
+
+});
