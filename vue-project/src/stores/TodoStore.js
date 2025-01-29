@@ -1,62 +1,41 @@
-import {defineStore} from 'pinia'
-import {v4 as uuidv4} from "uuid";
+import {defineStore} from 'pinia';
+
+const STORE_NAME = 'todoStore';
 
 export const useTodoStore = defineStore('todoStore', {
     state: () => ({
-        todos: [
-            {
-                id: 1,
-                title: 'Add Title Todo',
-                items: [
-                    {
-                        id: uuidv4(1),
-                        name: 'Add New Todo',
-                        done: false
-                    },
-                    {
-                        id: uuidv4(2),
-                        name: 'Super task',
-                        done: true
-                    },
-                    {
-                        id: uuidv4(3),
-                        name: 'My new task',
-                        done: false
-                    }
-                ]
-            },
-            {
-                id: 2,
-                title: 'My Title Todo',
-                items: [
-                    {
-                        id: uuidv4(4),
-                        name: 'My new task',
-                        done: true
-                    }
-                ]
-            },
-            {
-                id: 3,
-                title: 'Add New Title',
-                items: [
-                    {
-                        id: uuidv4(5),
-                        name: 'Super task',
-                        done: true
-                    },
-                    {
-                        id: uuidv4(6),
-                        name: 'My new task',
-                        done: false
-                    }
-                ]
-            },
-        ]
+        todos: JSON.parse(localStorage.getItem(STORE_NAME)) ?? [],
     }),
+
     getters: {
         findTodo: (state) => {
-            return (id) => state.todos.find((todo) => todo.id.toString() === id)
+            return (id) => state.todos.find((todo) => todo.id.toString() === id);
+        },
+    },
+
+    actions: {
+        save(){
+            localStorage.setItem(STORE_NAME, JSON.stringify(this.todos));
+        },
+
+        createTodo(newTodo) {
+            this.todos.push(newTodo.value);
+            this.save();
+        },
+        deleteTodo(id) {
+            this.todos = this.todos.filter(todo => todo.id !== id);
+            this.save();
+        },
+        editTodo(newTodo) {
+            newTodo.items = newTodo.items.filter(item => item.isDeleted === false);
+
+            this.todos.map(function (todo) {
+                if (todo.id === newTodo.id) {
+                    return newTodo;
+                }
+            });
+            this.save();
         },
     }
-})
+});
+

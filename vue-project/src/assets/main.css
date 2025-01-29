@@ -12,17 +12,15 @@ main {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
-    margin: 5px 0 10px 5px;
+    margin: 5px 0 7px 0;
     color: #056565;
 }
 
-h3 {
-    margin: 20px 20px 20px 20px;
-    text-align: center;
-    font-size: 18px;
-    color: red;
+p {
+    color: #292b2b;
+    font-size: 16px;
 }
 
 a:link {
@@ -33,13 +31,10 @@ a:link {
 
 a:hover {
     background-color: rgba(255, 255, 255, 0);
-    h2{
+
+    h2 {
         color: #129388;
     }
-}
-
-ul {
-    list-style: none;
 }
 
 .logo {
@@ -55,7 +50,15 @@ hr {
     color: #cac9c9;
     background-color: #cac9c9;
     height: 1px;
-    margin: 3px;
+    margin: 5px 3px;
+}
+
+.main-container {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+
 }
 
 .my-style {
@@ -63,13 +66,6 @@ hr {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-}
-
-.my-list {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
-    grid-gap: 7px;
 }
 
 .checkbox-label {
@@ -82,72 +78,50 @@ hr {
     cursor: pointer;
 }
 
+.text_list_isShow {
+    text-decoration: line-through;
+    text-decoration-color: #14ac9f;
+}
+
+.text_list_isShow p {
+    color: #8c8b8b;
+}
+
 .task-item {
     display: flex;
     align-items: center;
-}
-
-.task-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.task-input {
-    width: 99%;
-    border-radius: 5px;
-    border: 1px solid rgba(204, 204, 204, 0.34);
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.task_id {
-    margin: 5px 0 5px 0;
-    color: #14ac9f;
-    font-weight: bold;
-}
-
-.task-li {
-    padding: 5px 5px;
-    list-style-type: none;
-    color: #5a5959;
     text-transform: capitalize;
-}
-
-.task-name {
-    margin: 5px 0 5px 0;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 80% 15%;
-    column-gap: 20px;
-}
-
-.text_list {
-    text-transform: capitalize;
-    cursor: pointer;
-}
-
-.text_list_isShow {
-    color: #acabab;
-    text-decoration: line-through;
-}
-
-.btn-dialog {
-    margin: 15px 0;
-    display: flex;
-    justify-content: center
+    margin-bottom: 5px;
 }
 
 button {
     border-radius: 5px;
+    background-color: rgba(36, 159, 149, 0.6);
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 10px 35px;
     font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
     background-color: rgb(36, 159, 149);
+}
+
+.btn-add {
+    text-align: right;
+}
+
+.input-create-item {
+    width: 97%;
+    height: auto;
+    margin: 5px 5px 5px 0;
+    padding: 5px 5px;
+    background-color: white;
+    border: white;
+    text-transform: capitalize;
+    color: #292b2b;
+    font-size: 16px;
+    caret-color: #f36f06;
 }
 
 .btn-input {
@@ -161,28 +135,5 @@ button:hover {
 
 .btn-input:hover {
     background-color: rgb(36, 159, 149);
-}
-
-.btn-yes {
-    color: white;
-    background-color: #e45353;
-    margin-right: 5px;
-    padding: 8px 20px;
-    cursor: pointer;
-}
-
-.btn-yes:hover {
-    background-color: #aa3434;
-}
-
-.btn-no {
-    color: white;
-    background-color: #129388;
-    cursor: pointer;
-    padding: 8px 25px;
-}
-
-.btn-no:hover {
-    background-color: #044c4c;
 }
 
