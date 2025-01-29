@@ -39,11 +39,10 @@ import {useTodoStore} from "@/stores/TodoStore.js";
 import Buttons from "@/components/UI/Buttons.vue";
 import {ref} from "vue";
 
-const todoStore = useTodoStore();
+const store = useTodoStore();
 
 const newTitle = ref("");
 const isVisible = ref(false);
-
 
 const props = defineProps({
   id: {
@@ -53,10 +52,10 @@ const props = defineProps({
 
 });
 
-const todo = todoStore.findTodo(props.id);
+const todo = store.findTodo(props.id);
 
 const editTodo = () => {
-  todoStore.editTodo(todo)
+  store.editTodo(todo);
 };
 const addTitle = () => {
   todo.title = newTitle.value;

@@ -49,12 +49,13 @@ import {ref} from "vue";
 const props = defineProps({
   item: {
     type: Object,
-    required: true
+    required: true,
+    isDeleted: false,
   },
 
   items: {
     type: Array,
-    required: true
+    required: true,
   }
 });
 

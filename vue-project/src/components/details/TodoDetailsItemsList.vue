@@ -29,9 +29,6 @@ import TodoDetailsItem from "@/components/details/TodoDetailsItem.vue";
 import Buttons from "@/components/UI/Buttons.vue";
 import {ref} from "vue";
 import {v4 as uuidv4} from "uuid";
-import {useTodoStore} from "@/stores/TodoStore.js";
-
-const store = useTodoStore();
 
 const props = defineProps({
   items: {
@@ -48,7 +45,7 @@ const showInput = () => {
 }
 
 const addNewTask = () => {
-  const newItem = props.items.push(
+   props.items.push(
       {
         id: uuidv4(),
         name: nameTask.value,
@@ -56,7 +53,7 @@ const addNewTask = () => {
         isDeleted: false
       }
   );
-  store.addItemsTodo(newItem);
+
   isVisibleInput.value = !isVisibleInput.value;
 }
 </script>

@@ -38,7 +38,8 @@ const addTask = () => {
       {
         id: uuidv4(),
         name: '',
-        done: false
+        done: false,
+        isDeleted: false,
       })
 }
 </script>
